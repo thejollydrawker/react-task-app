@@ -1,16 +1,16 @@
 {
   "tasks": [
     {
-      "text": "Wake Up",
-      "id": 1,
-      "date": "2022.09.16",
-      "reminder": false
-    },
-    {
       "text": "Breakfast",
       "date": "2022.09.16",
-      "reminder": false,
+      "reminder": true,
       "id": 2
+    },
+    {
+      "text": "Wake up",
+      "date": "2023.09.26",
+      "reminder": true,
+      "id": 3
     }
   ]
 }

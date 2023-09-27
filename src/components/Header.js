@@ -3,12 +3,12 @@ import Button from './Button';
 
 const Header = ({ title, onAdd, showAdd }) => {
   return (
-    <header>
-      {title}
+    <header className="app-header">
+      <h1>{title}</h1>
       <Button
         text={showAdd ? 'Close' : 'Add'}
         onClick={onAdd}
-        color={showAdd? 'red' : 'green'}
+        buttonClass={showAdd? 'button-close' : 'button-new'}
 
       />
     </header>

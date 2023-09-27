@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from "./components/Header";
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
+import './App.scss'
 
 
 function App() {
@@ -81,12 +82,18 @@ const toggleReminder = async (id) => {
   return (
     <div className="App">
       <Header showAdd={showForm} title="Task Tracker" onAdd={() => setShowForm(!showForm)}/>
-      {showForm && <TaskForm onAdd={addTask}/>}
-      {
-        tasks.length > 0 
-        ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> 
-        : 'No Tasks'
-      }
+      
+      <main className='app-main'>
+        <section className='task-list'>
+        {
+          tasks.length > 0 
+          ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> 
+          : 'No Tasks'
+        }
+        </section>
+        {showForm && <TaskForm onAdd={addTask}/>}
+
+      </main>
       
         </div>
   );

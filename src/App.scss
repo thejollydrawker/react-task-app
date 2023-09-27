@@ -1,0 +1,191 @@
+$font-color: #1b1b1b;
+$font-family: Georgia, 'Times New Roman', Times, serif;
+$shadow-color: #c2c2c2;
+$background-body: #ECEE81;
+
+body {
+    color: $font-color;
+    font-family: $font-family;
+    margin: 0;
+    background-color: $background-body;
+}
+.app-header{
+    padding: 2rem;
+    color: $font-color;
+    border-bottom: 0.15rem solid $shadow-color;
+    background-color: white;
+}
+
+.app-main {
+    display: flex;
+}
+
+.button {
+    padding: 0.3rem;
+    min-width: 8rem;
+    border-radius: 0.25rem;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0.1rem 0.1rem $shadow-color;
+    color: $font-color;
+
+    &-new {
+        @extend .button;
+        background-color: #8DDFCB;
+
+        &:hover{
+            background-color: rgb(201, 233, 201);
+        }
+
+    }
+
+    &-close {
+        @extend .button;
+        background-color: #4a7a6e;
+        color: rgb(230, 230, 230);
+
+        &:hover{
+            background-color: #41665d;
+        }
+    }
+
+    &-save{
+        @extend .button;
+        background-color: #82A0D8;
+        margin-top: 1rem;
+
+        &:hover{
+            background-color: rgb(201, 233, 201);
+        }
+    }
+}
+
+.task-form {
+    
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0.1rem 0.1rem $shadow-color;
+    background-color: #EDB7ED;
+    
+    &-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &-inline-field {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &-input {
+        border-radius: 0.2rem;
+        border-width: 0.1rem;
+        border-color: $shadow-color;
+        padding: 0.4rem;
+
+        &:hover {
+            border-color: #82A0D8;
+        }
+
+        &:focus {
+            outline-color: #82A0D8;
+            outline-offset: 0.15rem;
+        }
+
+        &:checked{
+            color: #82A0D8;
+        }
+    }
+
+    &-checkbox {
+        all:unset;
+        font: inherit;
+        color: #82A0D8;
+        width: 1rem;
+        height: 1rem;
+        border: 0.1rem solid $font-color;
+        border-radius: 0.15em;
+        background-color: white;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
+
+        &::before {
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #82A0D8;
+        }
+
+        &:checked::before {
+            transform: scale(1);
+        }
+
+        &:hover {
+            background-color: #c4d0e7;
+        }
+
+        &:focus {
+            outline: solid;
+            outline-color: #82A0D8;
+            outline-offset: 0.1rem;
+        }
+    }
+}
+
+
+.task-form-label {
+    margin-top: 1rem;
+}
+
+
+.task-list {
+    width: 70%;
+    padding: 1.25rem;
+    margin-top: 0.25rem;
+    height: 100%
+}
+
+.task-item {
+    background-color: white;
+    margin: 0.5rem;
+    padding: 0.2rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    box-shadow: 0.1rem 0.1rem $shadow-color;
+
+    &-toggled {
+        @extend .task-item;
+        border-left: 0.3rem solid green;
+    }
+
+    &:hover {
+        transform: scale(1.0075);
+        transition: 120ms transform ease-in-out;
+    }
+
+    h3 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0.25rem 0 1rem;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    p {
+        margin: 0;
+        margin-top: 0.5rem;
+        padding: 0 1rem 0 1rem;
+
+    }
+}
