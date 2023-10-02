@@ -1,7 +1,10 @@
 $font-color: #1b1b1b;
 $font-family: Georgia, 'Times New Roman', Times, serif;
 $shadow-color: #c2c2c2;
-$background-body: #ECEE81;
+$background-body: white;
+$blue-main: #AED2FF;
+$form-color: #ca82fd;
+$header-background: #27005D;
 
 body {
     color: $font-color;
@@ -11,9 +14,10 @@ body {
 }
 .app-header{
     padding: 2rem;
-    color: $font-color;
+    color: #E4F1FF;
     border-bottom: 0.15rem solid $shadow-color;
-    background-color: white;
+    background-color: $header-background;
+    text-shadow: $font-color 1px 3px;
 }
 
 .app-main {
@@ -28,13 +32,14 @@ body {
     font-weight: 600;
     box-shadow: 0.1rem 0.1rem $shadow-color;
     color: $font-color;
+    cursor: pointer;
 
     &-new {
         @extend .button;
-        background-color: #8DDFCB;
+        background-color: #AED2FF;
 
         &:hover{
-            background-color: rgb(201, 233, 201);
+            background-color: #E4F1FF;
         }
 
     }
@@ -51,7 +56,7 @@ body {
 
     &-save{
         @extend .button;
-        background-color: #82A0D8;
+        background-color: $blue-main;
         margin-top: 1rem;
 
         &:hover{
@@ -66,7 +71,12 @@ body {
     margin: 1rem;
     border-radius: 1.5rem;
     box-shadow: 0.1rem 0.1rem $shadow-color;
-    background-color: #EDB7ED;
+    background-color: $form-color;
+
+    .validation-error-msg {
+        color:darkred;
+        transition: 120ms all ease-in-out;
+    }
     
     &-field {
         display: flex;
@@ -87,26 +97,30 @@ body {
         padding: 0.4rem;
 
         &:hover {
-            border-color: #82A0D8;
+            border-color: $blue-main;
+            outline: solid;
+            outline-color: $blue-main;
+            outline-offset: 0.005rem;
         }
 
         &:focus {
-            outline-color: #82A0D8;
+            outline-color: $blue-main;
             outline-offset: 0.15rem;
         }
 
         &:checked{
-            color: #82A0D8;
+            color: $blue-main;
+            outline-color: $blue-main;
         }
     }
 
     &-checkbox {
         all:unset;
         font: inherit;
-        color: #82A0D8;
+        color: $blue-main;
         width: 1rem;
         height: 1rem;
-        border: 0.1rem solid $font-color;
+        border: 0.1rem solid $blue-main;
         border-radius: 0.15em;
         background-color: white;
         transform: translateY(-0.075em);
@@ -119,7 +133,7 @@ body {
             height: 1rem;
             transform: scale(0);
             transition: 120ms transform ease-in-out;
-            box-shadow: inset 1em 1em #82A0D8;
+            box-shadow: inset 1em 1em $blue-main;
         }
 
         &:checked::before {
@@ -132,7 +146,7 @@ body {
 
         &:focus {
             outline: solid;
-            outline-color: #82A0D8;
+            outline-color: $blue-main;
             outline-offset: 0.1rem;
         }
     }
@@ -152,7 +166,7 @@ body {
 }
 
 .task-item {
-    background-color: white;
+    background-color: rgb(240, 240, 240);
     margin: 0.5rem;
     padding: 0.2rem;
     cursor: pointer;
@@ -161,7 +175,7 @@ body {
 
     &-toggled {
         @extend .task-item;
-        border-left: 0.3rem solid green;
+        border-left: 0.3rem solid #27005D;
     }
 
     &:hover {

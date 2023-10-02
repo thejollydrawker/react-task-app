@@ -9,6 +9,7 @@ const TaskForm = ({onAdd}) => {
     const [text, setText ] = useState('')
     const [date, setDate ] = useState('')
     const [reminder, setReminder ] = useState('')
+    const [showValidationError, setValidationError] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -17,17 +18,22 @@ const TaskForm = ({onAdd}) => {
             setText('');
             setDate('');
             setReminder(false);
-        }else{
-            alert('Please fill the form')
-        }
+            setValidationError(false);
+        } else 
+            setValidationError(true);
+        
     }
 
   return (
     <form className="task-form" 
-    onSubmit={onSubmit}>
+    onSubmit={onSubmit}
+    onKeyDown={() => {setValidationError(false)}}    >
+        <h3>
+            Add new task
+        </h3>
         <div className="task-form-field">
             <label className="task-form-label">
-                Task
+                Task <span style={{color: 'red'}}>*</span>
             </label>
             <input 
             type="text" 
@@ -71,6 +77,15 @@ const TaskForm = ({onAdd}) => {
 
         <input type='submit' 
         value='Save Task' className="button-save" />
+
+        {
+            showValidationError && 
+            <p className="validation-error-msg">
+                Please fill the form
+            </p>
+        }
+
+        
     </form>
   )
 }
