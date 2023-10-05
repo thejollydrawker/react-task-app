@@ -5,12 +5,18 @@ $background-body: white;
 $blue-main: #AED2FF;
 $form-color: #ca82fd;
 $header-background: #27005D;
+$footer-height: 75px;
 
 body {
     color: $font-color;
     font-family: $font-family;
     margin: 0;
     background-color: $background-body;
+    min-height: 100vh;
+
+    div#root, div.App {
+    min-height: 100%;
+    }
 }
 .app-header{
     padding: 2rem;
@@ -22,6 +28,8 @@ body {
 
 .app-main {
     display: flex;
+    padding-bottom: $footer-height;
+
 }
 
 .button {
@@ -202,4 +210,14 @@ body {
         padding: 0 1rem 0 1rem;
 
     }
+}
+
+.app-footer {
+    text-align: center;
+    background-color: $header-background;
+    color: $blue-main;
+    padding: 0.2rem 0;
+    
+        height: $footer-height;
+        margin-bottom: (-$footer-height);
 }

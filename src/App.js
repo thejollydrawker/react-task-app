@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
 import './App.scss'
@@ -80,22 +83,35 @@ const toggleReminder = async (id) => {
 }
 
   return (
+    <Router>
     <div className="App">
       <Header showAdd={showForm} title="Task Tracker" onAdd={() => setShowForm(!showForm)}/>
-      
-      <main className='app-main'>
-        <section className='task-list'>
-        {
-          tasks.length > 0 
-          ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> 
-          : 'No Tasks'
-        }
-        </section>
-        {showForm && <TaskForm onAdd={addTask}/>}
 
-      </main>
+    
+      <Routes>
+        <Route path="/" exact element={
+          <>
+            <main className='app-main'>
+              <section className='task-list'>
+              {
+                tasks.length > 0 
+                ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> 
+                : 'No Tasks'
+              }
+              </section>
+              {showForm && <TaskForm onAdd={addTask}/>}
+
+            </main>
+          </>
+        }></Route>
+        <Route path="/about" element={<About/>}></Route>
+      </Routes>
+
+
+      <Footer />
       
-        </div>
+    </div>
+    </Router>
   );
 }
 
