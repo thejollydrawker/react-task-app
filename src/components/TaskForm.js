@@ -33,7 +33,7 @@ const TaskForm = ({onAdd}) => {
         </h3>
         <div className="task-form-field">
             <label className="task-form-label">
-                Task <span style={{color: 'red'}}>*</span>
+                Task <span style={{color: '#B70404'}}>*</span>
             </label>
             <input 
             type="text" 
@@ -62,7 +62,7 @@ const TaskForm = ({onAdd}) => {
             />
         </div>
          
-        <div className="task-form-label task-form-inline-field">
+        <div className="task-form-inline-field">
             <label>
                 Set reminder
             </label>

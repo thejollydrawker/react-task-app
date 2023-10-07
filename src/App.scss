@@ -14,10 +14,17 @@ body {
     background-color: $background-body;
     min-height: 100vh;
 
-    div#root, div.App {
-    min-height: 100%;
+    div.App {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        a:active {
+            color: $blue-main;
+        }
     }
 }
+
 .app-header{
     padding: 2rem;
     color: #E4F1FF;
@@ -28,8 +35,17 @@ body {
 
 .app-main {
     display: flex;
-    padding-bottom: $footer-height;
+    flex-grow: 1;
+}
 
+.about-section {
+    @extend .app-main;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    border: solid $form-color;
+    border-radius: 15px;
 }
 
 .button {
@@ -81,8 +97,12 @@ body {
     box-shadow: 0.1rem 0.1rem $shadow-color;
     background-color: $form-color;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     .validation-error-msg {
-        color:darkred;
+        color:#B70404;
         transition: 120ms all ease-in-out;
     }
     
@@ -96,6 +116,7 @@ body {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        margin-top: 1.5rem;
     }
 
     &-input {
@@ -141,7 +162,7 @@ body {
             height: 1rem;
             transform: scale(0);
             transition: 120ms transform ease-in-out;
-            box-shadow: inset 1em 1em $blue-main;
+            box-shadow: inset 1em 1em #F4E869;
         }
 
         &:checked::before {
@@ -157,6 +178,10 @@ body {
             outline-color: $blue-main;
             outline-offset: 0.1rem;
         }
+    }
+
+    h3 {
+        margin: 0.5rem;
     }
 }
 
@@ -217,7 +242,5 @@ body {
     background-color: $header-background;
     color: $blue-main;
     padding: 0.2rem 0;
-    
-        height: $footer-height;
-        margin-bottom: (-$footer-height);
+    height: $footer-height;
 }

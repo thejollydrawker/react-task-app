@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "text": "Breakfast",
-      "date": "2022.09.16",
-      "reminder": true,
-      "id": 2
-    },
-    {
       "text": "Wake up",
       "date": "2023.09.26",
       "reminder": true,
@@ -17,6 +11,12 @@
       "date": "00.02.2222",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "Breakfats",
+      "date": "10.07.2023",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
